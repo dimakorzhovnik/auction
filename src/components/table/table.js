@@ -8,44 +8,38 @@ export class Table extends Component {
                     <div>Raund №</div>
                     <div>ETH</div>
                     <div>Price</div>
-                    <div>Your</div>
-                    <div>Q5</div>
+                    <div>Your contribution</div>
                 </div>
                 <div className='table-body'>
                 <div className='table-rows'>
-                    <div>Joyce Ming</div>
-                    <div>$200</div>
-                    <div>$35</div>
-                    <div>Andy</div>
-                    <div>Andy</div>
+                    <div>1</div>
+                    <div>200</div>
+                    <div>35</div>
+                    <div>10</div>
                 </div>
                 <div className='table-rows'>
-                    <div>Joyce Ming</div>
-                    <div>$200</div>
-                    <div>$35</div>
-                    <div>Andy</div>
-                    <div>Andy</div>
+                    <div>2</div>
+                    <div>200</div>
+                    <div>35</div>
+                    <div>2</div>
                 </div>
                 <div className='table-rows'>
-                    <div>Joyce Ming</div>
-                    <div>$200</div>
-                    <div>$35</div>
-                    <div>Andy</div>
-                    <div>Andy</div>
+                    <div>3</div>
+                    <div>200</div>
+                    <div>35</div>
+                    <div>20</div>
                 </div>
                 <div className='table-rows'>
-                    <div>Joyce Ming</div>
-                    <div>$200</div>
-                    <div>$35</div>
-                    <div>Andy</div>
-                    <div>Andy</div>
+                    <div>4</div>
+                    <div>200</div>
+                    <div>35</div>
+                    <div>12</div>
                 </div>
                 <div className='table-rows'>
-                    <div>Joyce Ming</div>
-                    <div>$200</div>
-                    <div>$35</div>
-                    <div>Andy</div>
-                    <div>Andy</div>
+                    <div>5</div>
+                    <div>200</div>
+                    <div>35</div>
+                    <div>6</div>
                 </div>
                 </div>
                 

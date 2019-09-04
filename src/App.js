@@ -13,7 +13,8 @@ import {
   Dinamics,
   Statistics,
   Table,
-  ActionBar
+  ActionBar,
+  Timer
 } from './components';
 import './main.css';
 
@@ -258,6 +259,7 @@ class App extends PureComponent {
         <main className="block-body">
           {/* <span className="caption">Game of Links</span> */}
           <Statistics />
+          <Timer />
           <Dinamics />
           <Table />
         </main>

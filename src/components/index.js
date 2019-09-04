@@ -12,3 +12,4 @@ export { Dinamics } from './dinamics/dinamics';
 export { Statistics } from './statistics/statistics';
 export { Table } from './table/table';
 export { ActionBar } from './actionBar/actionBar';
+export { Timer } from './timer/timer';
