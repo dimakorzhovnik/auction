@@ -28,13 +28,13 @@ import './main.css';
 // const getInfoBlock = (methods, methodsArray) =>
 //   Promise.all(methods.map(methodName => methodsArray[methodName]().call()));
 
-// const run = async func => {
-//   try {
-//     await func();
-//   } catch (error) {
-//     setTimeout(run, 1000, func);
-//   }
-// };
+const run = async func => {
+  try {
+    await func();
+  } catch (error) {
+    setTimeout(run, 1000, func);
+  }
+};
 
 class App extends PureComponent {
   constructor(props) {
@@ -49,19 +49,26 @@ class App extends PureComponent {
       talks: {},
       purchasedTickets: null,
       userHasTicket: false,
-      ticket: null
+      ticket: null,
+      dataTable: [],
+      roundThis: '',
+      rounds: 60
     };
   }
 
-  // async componentDidMount() {
-  //   if (this.props.web3) {
-  //     run(this.getInfo);
-  //     run(this.getTicketsInfo);
-  //     run(this.getShares);
-  //     run(this.getDeposit);
-  //     run(this.getSchedule);
-  //   }
-  // }
+  async componentDidMount() {
+    // if (this.props.web3) {
+    // run(this.getInfo);
+    // run(this.getTicketsInfo);
+    // run(this.getShares);
+    // run(this.getDeposit);
+    // run(this.getSchedule);
+    run(this.statistics);
+    run(this.dataTable);
+    // console.log(this.props.contract);
+    // console.log(this.props.accounts);
+    // }
+  }
 
   // async componentDidUpdate(prevProps, prevState) {
   //   if (prevState.schedule !== this.state.schedule) {
@@ -240,6 +247,61 @@ class App extends PureComponent {
   //   }
   // };
 
+  statistics = async () => {
+    const {
+      contract: { methods }
+    } = this.props;
+    const roundThis = await methods.today().call();
+    return this.setState({
+      roundThis
+    });
+  };
+
+  dataTable = async () => {
+    // const { dataTable } = this.state;
+    // try {
+    const {
+      contract: { methods },
+      accounts
+    } = this.props;
+    // const data = await methods.dailyTotals()().call();
+    // const
+    // let result = [];
+    // for (let i = 0; i < 60; i++) {
+    //   result = methods.dailyTotals(i).call();
+    // }
+    // const today = await methods.today().call();
+    // const userBuys = await methods.userBuys(today, accounts).call();
+    // const dailyTotals = await methods.dailyTotals(today).call();
+
+    // const userBuysEth = userBuys / Math.pow(10, 18);
+    // if (!data) {
+    //   throw new TypeError('invalid value');
+    // }
+          const round = '';
+          const priceEth = '';
+          const result = '';
+          const userBuysEth = '';
+          // result: '',
+          // priceEth: '',
+          // userBuysEth: ''
+    const dataTable = {
+      round,
+      priceEth,
+      result,
+      userBuysEth
+    };
+
+    // console.log(dataTable);
+
+    return this.setState({
+      dataTable
+    });
+    // } catch (e) {
+    //   throw new Error();
+    // }
+  };
+
   getWarning = warning => this.setState({ warning });
 
   render() {
@@ -251,17 +313,22 @@ class App extends PureComponent {
       deposit,
       talks,
       userHasTicket,
-      purchasedTickets
+      purchasedTickets,
+      thisRound,
+      dataTable,
+      roundThis,
+      rounds
     } = this.state;
 
+    // this.dataTable();
     return (
       <span>
         <main className="block-body">
           {/* <span className="caption">Game of Links</span> */}
-          <Statistics />
-          <Timer />
+          <Statistics round={roundThis} roundAll={rounds} />
+          {/* <Timer /> */}
           <Dinamics />
-          <Table />
+          <Table data={dataTable} />
         </main>
         <ActionBar />
       </span>
@@ -269,4 +336,4 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+export default withWeb3(App);

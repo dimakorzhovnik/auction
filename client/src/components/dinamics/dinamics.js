@@ -17,7 +17,7 @@ export class Dinamics extends Component {
       line: {
         color: '#36d6ae'
       },
-      hovertemplate: '%{y: .2f}<br>' + '<extra></extra>'
+      hovertemplate: '1 THC <br>'+'price: %{y: .2f}<br>' + 'volume: <br>'+'<extra></extra>'
     };
 
     const trace2 = {
